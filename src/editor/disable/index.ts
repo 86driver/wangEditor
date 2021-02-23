@@ -27,7 +27,7 @@ export default function disableInit(editor: Editor) {
         let textContainerZindexValue = editor.zIndex.get('textContainer')
         const content = editor.txt.html()
         $contentDom = $(
-            `<div class="w-e-content-mantle" style="z-index:${textContainerZindexValue}">
+            `<div class="w-e-content-mantle" style="z-index:${textContainerZindexValue};height:${editor.config.height}px">
                 <div class="w-e-content-preview w-e-text">${content}</div>
             </div>`
         )

@@ -1,0 +1,49 @@
+<!--
+    fixbug: 菜单和编辑区域分离后产生的问题 #2899
+    author: yanbiao
+    tips: 交叉测试通过后删除
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>菜单和编辑区域分离后产生的问题 #2899</title>
+    <style>
+        .toolbar {
+            border: 1px solid #ccc;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+        }
+
+        .text {
+            border: 1px solid #ccc;
+            height: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <div id="toolbar-container" class="toolbar"></div>
+        <p>------ 我是分割线 ------</p>
+        <div id="text-container" class="text"></div>
+    </div>
+
+    <script src="../dist/wangEditor.js"></script>
+    <script>
+        var E = window.wangEditor
+        var editor = new E('#toolbar-container', '#text-container') // 传入两个元素
+        editor.create()
+        editor.txt.html('<p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p>')
+        editor.disable()
+        // editor.enable()
+    </script>
+</body>
+
+</html>
